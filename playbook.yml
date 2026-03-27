@@ -1,0 +1,7 @@
+---
+- name: Install Moodle MCP Server on Ubuntu
+  hosts: moodle_mcp
+  become: true
+
+  roles:
+    - moodle_mcp

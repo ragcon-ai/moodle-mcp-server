@@ -1,0 +1,10 @@
+# Moodle MCP Server Configuration
+moodle_url: "https://your-moodle-site.com"
+moodle_token: "your_webservice_token"
+mcp_user: moodle-mcp
+mcp_group: moodle-mcp
+python_min_version: "3.11"
+mcp_server_repo: "git+https://github.com/lmscloud-io/moodle-mcp-server"
+mcp_server_command: "moodle-mcp-server"
+mcp_service_name: moodle-mcp-server
+install_unix_timestamps_mcp: true

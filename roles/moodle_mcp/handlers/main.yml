@@ -1,0 +1,6 @@
+---
+- name: Restart moodle-mcp-server
+  ansible.builtin.systemd:
+    name: "{{ mcp_service_name }}"
+    state: restarted
+    daemon_reload: true

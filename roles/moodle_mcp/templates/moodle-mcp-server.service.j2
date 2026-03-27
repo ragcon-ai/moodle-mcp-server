@@ -1,0 +1,23 @@
+[Unit]
+Description=Moodle MCP Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User={{ mcp_user }}
+Group={{ mcp_group }}
+EnvironmentFile=/etc/default/{{ mcp_service_name }}
+Environment=HOME=/home/{{ mcp_user }}
+Environment=PATH=/home/{{ mcp_user }}/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/{{ mcp_user }}/.local/bin/uvx --from {{ mcp_server_repo }} {{ mcp_server_command }}
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/{{ mcp_user }}
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
