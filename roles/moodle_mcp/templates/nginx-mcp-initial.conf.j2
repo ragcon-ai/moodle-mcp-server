@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    server_name {{ mcp_domain }};
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/html;
+    }
+
+    location / {
+        return 503 '{"error": "SSL not yet configured"}';
+        add_header Content-Type application/json;
+    }
+}
